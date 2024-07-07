@@ -1,7 +1,7 @@
 import { Expose } from 'class-transformer';
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeInsert} from 'typeorm';
 
-@Entity()
+@Entity('Users')
 export class UserEntity {
     @PrimaryGeneratedColumn('uuid')
     @Expose()

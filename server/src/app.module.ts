@@ -3,8 +3,9 @@ import { APP_FILTER } from '@nestjs/core';
 import { UserModule } from './modules/user.module';
 import { HttpExceptionFilter } from 'utils/error/http-exception.filter';
 import { DatabaseModule } from './modules/utils/database.module';
+import { AppConfigModule } from './modules/utils/config.module';
 @Module({
-  imports: [UserModule, DatabaseModule], //TODO: Find a better way like BaseModule or sum like that
+  imports: [UserModule, DatabaseModule, AppConfigModule], //TODO: Find a better way like BaseModule or sum like that
   providers: [
     {
       provide: APP_FILTER,
