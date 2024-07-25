@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { GroupChatMessageService } from '../services/group-chat-message.service';
 import { Public } from 'utils/decorators/public.decorator';
-import { GroupChatMessagesEntity } from 'src/models/entities/group-chat-messages.entity';
 import { CreateGroupChatMessageDto } from 'src/models/dto/group/create-group-chat-message.dto';
 
 @Controller('group-chat-messages')
