@@ -3,6 +3,8 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { UserEntity } from 'src/models/entities/user.entity';
+import { GroupChatEntity } from 'src/models/entities/group-chat.entity';
+import { GroupChatMessagesEntity } from 'src/models/entities/group-chat-messages.entity';
 
 @Module({
     imports: [TypeOrmModule.forRootAsync({
@@ -15,7 +17,7 @@ import { UserEntity } from 'src/models/entities/user.entity';
                 username: configService.get<string>('DB_USERNAME'),
                 password: configService.get<string>('DB_PASSWORD'),
                 database: configService.get<string>('DB_NAME'),
-                entities: [UserEntity],
+                entities: [UserEntity, GroupChatEntity, GroupChatMessagesEntity],
                 synchronize: true,
                 cache: true
             };
