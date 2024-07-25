@@ -10,13 +10,11 @@ export class GroupChatMessageRepository {
     constructor(@InjectRepository(GroupChatMessagesEntity) private groupChatMessageRep: Repository<GroupChatMessagesEntity>) {}
     
     async getGroupChatMessages(): Promise<GroupChatMessagesEntity[]> {
-        const entities = await this.groupChatMessageRep.find();
-        return entities;
+        return this.groupChatMessageRep.find({ relations: ['chat'] });
     }
 
     async getGroupChatMessage(where: PartialKeys<GroupChatMessagesEntity>): Promise<GroupChatMessagesEntity | null> {
-        const entity = await this.groupChatMessageRep.findOneBy(where);
-        return entity;
+        return this.groupChatMessageRep.findOne({ where, relations: ['chat'] });
     }
 
     async create(input: CreateGroupChatMessageDto): Promise<GroupChatMessagesEntity> {
