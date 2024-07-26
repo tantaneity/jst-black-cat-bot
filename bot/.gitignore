@@ -2,6 +2,7 @@
 config.env
 __pycache__
 **/*.session
+**/*.session-journal
 .vscode
 /DLS
 # File used to manually test new changes, contains sensitive data
